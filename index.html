@@ -118,7 +118,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a>
+						<a href="/tags/乱码七糟/" style="font-size: 10px;">乱码七糟</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a>
 					</div>
 				</section>
 				
@@ -219,15 +219,82 @@
       <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/08/从前有座猴山，山脚下有个小人儿/">从前有座猴山，山脚下有个小人儿</a>
+    </h1>
+  
+
+      </header>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <hr>
+<h2 id="关于猴山"><a href="#关于猴山" class="headerlink" title="关于猴山"></a><strong>关于猴山</strong></h2><p>全国最大非女性交友网。大品牌，人均小帅,月入两狗，互联网+搅基概念。搅基，我只认acfun！~</p>
+<h2 id="正题"><a href="#正题" class="headerlink" title="正题"></a><strong>正题</strong></h2><p>闲着无聊，发现<a href="http://www.acfun.tv" target="_blank" rel="external">A站</a>页面右下角的AC娘还蛮有意思的。首先呢，每摸五十次她就会换一个姿势，不仅如此，两个姿势之后，他还会测试你小左小右的手速，反正我是最少300+。</p>
+<p>在这里呢，在下不才，想写一个面向青铜组选手的教程，其实也就是有几点需要注意的。</p>
+<h2 id="关于点击事件"><a href="#关于点击事件" class="headerlink" title="关于点击事件"></a><strong>关于点击事件</strong></h2><p>每次点击的时候，会有一个提示点击次数的小框向上渐变运动，运动可以用css3中的@keyframes如下</p>
+<pre><code>@-webkit-keyframes click{
+    50%{
+        -webkit-transform:translateY(-15px);
+        opacity: 1;
+    }
+    100%{
+        -webkit-transform:translateY(-30px);
+        opacity: 0;
+    }
+}
+</code></pre><p>再单独设置一个.an的style</p>
+<pre><code>.an{animation: 1.5s click;}
+</code></pre><p>注意这里是单独，因为该方法是通过每次点击创建一个Li标签的，同时给Li添加”an”的className</p>
+<pre><code>function createLi(){
+    removeChildren(oUl);  //清除Li
+    var aLi = document.createElement(&apos;li&apos;);
+    aLi.innerHTML = &apos;+1&amp;nbsp;&amp;nbsp;Click!&apos;;
+    aLi.className = &apos;click an&apos;;
+    oUl.appendChild(aLi);                        
+}
+</code></pre><p>完了别忘了移除这些Li元素，这里是方法：</p>
+<pre><code>function removeChildren(pnode){    
+    var childs=pnode.childNodes;    
+    for(var i=0;i&lt;childs.length-1;i++){    
+    pnode.removeChild(childs.item(i));    
+    }    
+}
+</code></pre><h2 id="关于手速-APM"><a href="#关于手速-APM" class="headerlink" title="关于手速(APM)"></a><strong>关于手速(APM)</strong></h2><pre><code>function getAPM(){
+        if(num == 1){
+            startTime = new Date();
+            //点击为1的时候开始计时
+        }
+        if(num == 50){
+            oImg.src=&quot;img/2.gif&quot;
+            //到了第50下换一只手
+        }
+        if(num == 100){
+            var endTime = new Date();
+            oImg.src=&quot;img/3.gif&quot;
+            //记录100次的时候的时间，再换张图
+            var df = (endTime - startTime)/1000
+            //差值
+            var apm = Math.floor(6000/df)
+            //这里6000是(60/df)*100
+            alert(apm)    
+        }            
+    }
+</code></pre>
       
     </div>
     
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/乱码七糟/">乱码七糟</a></li></ul>
+	</div>
+
       
 
       
